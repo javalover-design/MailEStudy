@@ -1,0 +1,24 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mail.dao.goods.GoodsOperation">
+
+    <resultMap id="loadGoods" type="com.example.mail.entity.Goods">
+        <result property="goodsId" column="goods_id"/>
+        <result property="goodsName" column="goods_name"/>
+        <result property="goodsDescription" column="goods_description"/>
+        <result property="goodsPrice" column="goods_price"/>
+        <result property="vendorsId" column="vendors_id"/>
+        <result property="discount" column="discount"/>
+        <result property="pictureUrl" column="picture_url"/>
+        <result property="details" column="details"/>
+    </resultMap>
+    <select id="loadGoodsWithVendorsId" resultType="com.example.mail.entity.Goods" resultMap="loadGoods">
+    SELECT goods_name,goods_price,picture_url,details FROM goods;
+    </select>
+
+    <insert id="addProduct" parameterType="com.example.mail.entity.Goods">
+        INSERT INTO goods(goods_id, goods_name, goods_description,  vendors_id,goods_price, discount,details,picture_url)
+        VALUES (#{goodsId},#{goodsName},#{goodsDescription},#{vendorsId},#{goodsPrice},#{discount},#{details},#{pictureUrl})
+    </insert>
+</mapper>

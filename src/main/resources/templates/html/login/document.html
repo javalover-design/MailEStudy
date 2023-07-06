@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册协议</title>
+    <script type="text/javascript" src="../../../static/jquery-3.6.3.min.js"></script>
+    <link rel="stylesheet" href="../../../static/layui/css/layui.css">
+    <script type="text/javascript" src="../../../static/layui/layui.js"></script>
+    <style>
+        textarea{
+            height: 250px;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <textarea>
+        欢迎您关注易学商城，以下易学商城注册的注意事项：
+        1.注册人应当年满18周岁
+        2.注册人应当遵守中华人民共和国的一切相关法律法规
+        3.注册人必须提供真实的信息
+        4.最终解释权归开发者所有
+    </textarea>
+    <br>
+    <button  id="agree" type="button" class="layui-btn layui-btn-radius layui-btn-warm layui-btn-disabled" onclick="toRegister()"
+    >我同意此协议(5)</button>
+    <button  id="disagree" type="button" class="layui-btn layui-btn-radius layui-btn-danger layui-btn-disabled" onclick="exitRegister()" >我不同意此协议</button>
+<script type="text/javascript">
+      const agree = document.querySelector('#agree');
+      const disagree=document.querySelector('#disagree');
+      let time=5;
+      let number=setInterval(function () {
+            time--;
+          agree.innerHTML=`我同意此协议(${time})`
+            if (time===0){
+                agree.classList.remove('layui-btn-disabled');
+                agree.innerHTML='我已阅读并同意此协议'
+                disagree.classList.remove('layui-btn-disabled');
+                clearInterval(number)
+            }
+
+      },1000)
+
+    function toRegister() {
+
+            window.close();
+
+    }
+
+    function exitRegister() {
+         window.close();
+    }
+</script>
+</body>
+</html>

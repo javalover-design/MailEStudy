@@ -1,0 +1,28 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mail.dao.vendorsDao.LoadAddressData">
+    <resultMap id="resultMapProvince" type="com.example.mail.entity.Province">
+        <result column="province_id" property="provinceId"/>
+        <result column="province_name" property="provinceName"/>
+    </resultMap>
+    <select id="getProvince" resultMap="resultMapProvince" resultType="list">
+        SELECT DISTINCT province_id,province_name FROM address;
+    </select>
+    <resultMap id="resultMapCities" type="com.example.mail.entity.City">
+        <result column="city_id" property="cityId"/>
+        <result column="city_name" property="cityName"/>
+        <result column="province_id" property="provinceId"/>
+    </resultMap>
+    <select id="getCities" parameterType="java.lang.String" resultType="list" resultMap="resultMapCities">
+           SELECT DISTINCT city_id,city_name FROM address WHERE province_id=#{provinceId};
+    </select>
+    <resultMap id="resultMapRegions" type="com.example.mail.entity.Region">
+        <result column="city_id" property="cityId"/>
+        <result column="region_id" property="regionId"/>
+        <result column="region_name" property="regionName"/>
+    </resultMap>
+    <select id="getRegions" parameterType="java.lang.String" resultType="list" resultMap="resultMapRegions">
+        SELECT DISTINCT region_id,region_name FROM address WHERE city_id=#{cityId};
+    </select>
+</mapper>

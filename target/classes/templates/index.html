@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <title>易学商城</title>
+
+    <script type="text/javascript" src="../static/jquery-3.6.3.min.js"></script>
+    <link  rel="stylesheet"  type="text/css" href="../static/css/page/headpage.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/page/index.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/page/footpage.css">
+    <link  rel="stylesheet" type="text/css" href="../static/layui/css/layui.css">
+    <script  type="text/javascript" src="../static/layui/layui.js"></script>
+
+
+
+
+</head>
+<body id="fullBody">
+
+
+        <div class="layui-fluid" >
+            <div id="head">
+
+            </div>
+            <!--    头部-->
+            <div id="body">
+            <div class="layui-row">
+                <!--主页面内容-->
+                <div class="layui-col-lg4">
+                    <input class="layui-input-inline" type="text" id="searchProblem" autofocus placeholder="请输入您想要的商品"/>
+                <button class="layui-btn layui-btn-radius layui-btn-normal" id="search">
+                    <i class=" layui-icon layui-icon-search"></i>
+                </button>
+                </div>
+
+            </div>
+
+             <div class="layui-row" id="first_line">
+
+             </div>
+
+
+            </div>
+
+
+            <!--            尾部-->
+            <div id="foot">
+            </div>
+
+        </div>
+
+</body>
+
+<script>
+    let layer;
+    layui.use(['element','layer'],function () {
+            let element=layui.element;
+            layer=layui.layer;
+        layer.msg('欢迎来到易学商城',{icon:6,time:4000})
+    })
+    $("#head").load("templates/html/common/head.html")
+    $("#foot").load("templates/html/common/foot.html")
+    // $("#head").load("html/common/head.html")
+    // $("#foot").load("html/common/foot.html")
+
+    let vendorsId=null;
+
+
+    //获取用户登陆信息并展示到页面中
+    $(document).ready(function () {
+            //获取cookie
+            let cookies = document.cookie.split(';');
+
+            for (let i=0;i<cookies.length;i++){
+                let cookie=cookies[i].trim().split('=');
+                if (cookie[0]==="username"){
+                    let span=$("#log");
+                    span.text(cookie[1])
+                    console.log("修改完毕"+cookie[1])
+                    document.getElementById("logout").style='';
+                    document.getElementById("cancel").style='';
+                }
+
+
+            }
+
+
+    })
+
+    function showContact() {
+            layer.confirm('感谢您的关注！我的微信号是：XAZ2901895',{icon:1,title:'联系方式获取',btn:['知道了！']})
+    }
+
+
+
+
+
+
+
+</script>
+<script type="text/javascript" src="../static/js/index.js">
+</script>
+
+
+
+</html>
+

@@ -1,0 +1,7 @@
+#foot{
+    position:fixed;
+    left: 530px;
+    bottom: 0;
+    font-family: "Adobe 仿宋 Std R";
+    color: gray;
+}

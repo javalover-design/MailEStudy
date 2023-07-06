@@ -1,0 +1,47 @@
+# 设置不同的数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mail?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+
+# 解决swagger版本冲突
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher  # 解决版本冲突
+   # static-path-pattern:  此处表示外部静态资源访问路径，即return返回的字符串内容，若定义了，则需要严格按照定义的格式来写跳转，默认是/**
+
+  # 设置清除thymeleaf缓存
+  thymeleaf:
+    cache: false
+   # 设置thymeleaf的默认前缀
+    prefix: classpath:/templates/
+   # 设置thymeleaf的后缀
+    suffix: .html
+    #其他设置
+    mode: HTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+
+
+
+#  web:
+#    resources:
+#      static-locations: classpath:/ #指定静态资源的查找路径
+
+#设置端口
+server:
+  port: 8848
+
+  servlet:
+    session:
+      timeout: 3600s
+  # 设置session过期时间
+
+
+mybatis:
+  mapper-locations: classpath:mapper/user/*.xml,classpath:mapper/*.xml,classpath:mapper/vendors/*.xml,classpath:mapper/goods/*.xml
+

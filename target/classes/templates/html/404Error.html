@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>404 NOT FUND</title>
+    <link rel="stylesheet" href="../../static/layui/css/layui.css">
+    <script type="text/javascript" src="../../static/layui/layui.js"></script>
+</head>
+<body>
+
+<h1 style="text-align: center;font-family: 'Adobe 楷体 Std R' ;font-size: 28px;">404 NOT FUND</h1>
+<hr>
+
+
+
+<p style="text-align: center;text-decoration: underline" onclick="jumpToRegister()">
+    <i class=" layui-icon layui-icon-heart-fill"></i>
+    还没有账号？点我去注册</p>
+<br>
+<br>
+<br>
+<br>
+<p style="text-align: center;text-decoration: underline" onclick="loginAgain()">
+    <i class="layui-icon layui-icon-auz "></i>
+    重新登陆
+</p>
+
+
+<script>
+     function jumpToRegister() {
+            window.location.href="/register"
+     }
+
+     function loginAgain() {
+        window.location.href='/toVendorsLogin'
+     }
+</script>
+</body>
+</html>

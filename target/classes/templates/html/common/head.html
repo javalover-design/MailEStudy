@@ -1,0 +1,70 @@
+<link  rel="stylesheet" type="text/css" href="../../../static/layui/css/layui.css">
+<script  type="text/javascript" src="../../../static/layui/layui.js"></script>
+<ul class="layui-nav layui-bg-cyan" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+
+     <li class="layui-nav-item" id="tip" >
+         <!--用于提示用户登陆的,如果cookie中有用户信息，则隐藏-->
+         <a href="/login" >
+             <span id="log">用户还未登陆，点此进行登陆 </span>
+         </a>
+     </li>
+     <li class="layui-nav-item">
+         <a href="#">
+            <p id="aboutUs">关于我们</p>
+         </a>
+
+     </li>
+
+
+     <li class="layui-nav-item">
+         <a href="#">
+             <p id="myOrder"><i class="layui-icon layui-icon-list"></i> 我的订单</p>
+         </a>
+     </li>
+
+     <li class="layui-nav-item">
+         <a href="#">
+             <p id="purChase"><i class="layui-icon layui-icon-cart-simple"></i> 企业采购</p>
+         </a>
+     </li>
+
+     <li class="layui-nav-item">
+         <a href="javascript:loadGoodsData()">
+             <p id="services"><i class="layui-icon layui-icon-flag"></i> 产品订购</p>
+         </a>
+     </li>
+
+     <li class="layui-nav-item">
+         <a href="#">
+             <p id="community"><i class="layui-icon layui-icon-read"></i> 易学社区</p>
+         </a>
+     </li>
+
+<!--     <li class="layui-nav-item">-->
+
+<!--     </li>-->
+
+    <li class="layui-nav-item" id="logout" style="display: none">
+        <a href="/logout">
+          <i class="layui-icon layui-icon-close-fill
+"></i>  退出登陆
+        </a>
+    </li>
+
+    <li class="layui-nav-item" id="cancel" style="display: none">
+        <a href="/cancel">
+           <i class="layui-icon layui-icon-close"></i> 删除账户
+        </a>
+    </li>
+
+ </ul>
+
+ <script>
+
+ </script>
+
+
+
+
+

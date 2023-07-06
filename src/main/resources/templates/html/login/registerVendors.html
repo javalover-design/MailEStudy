@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>供应商登记</title>
+    <script type="text/javascript" src="../../../static/jquery-3.6.3.min.js"></script>
+    <link rel="stylesheet" href="../../../static/layui/css/layui.css">
+    <script type="text/javascript" src="../../../static/layui/layui.js"></script>
+    <script type="text/javascript" src="../../../static/js/registerVendors.js"></script>
+</head>
+<body onload="load()">
+        <div class="layui-fluid">
+            <div class="layui-row">
+
+                <h1 style="text-align: center">供应商信息登记</h1>
+
+            </div>
+
+          <form class="layui-form"  action="/registerVendors" method="get">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">供应商名称</label>
+                    <div class="layui-input-block" >
+                        <input type="text" name="vendorsName" class="layui-input" autocomplete="off" placeholder="请输入对应的供应商名称"  lay-verify="required" />
+                    </div>
+                </div>
+
+              <div class="layui-form-item">
+                  <label class="layui-form-label">注册地址</label>
+                  <div class="layui-input-block">
+                      <select id="province" name="vendorsProvince" lay-filter="changeProvince"  >
+
+                      </select>
+                      <select id="city" name="vendorsCity" lay-filter="changeCity" >
+
+                      </select>
+                      <select id="region" name="vendorsRegion">
+
+                      </select>
+                  </div>
+              </div>
+
+              <div class="layui-form-item">
+                  <label class="layui-form-label">登记电话</label>
+                  <div class="layui-input-block">
+                      <input type="text" name="vendorsPhone" class="layui-input" autocomplete="off" placeholder="请输入对应的登记电话"  lay-verify="phone"/>
+                  </div>
+              </div>
+
+              <div class="layui-form-item">
+                    <label class="layui-form-label">详细信息</label>
+                  <div class="layui-input-block">
+                      <textarea name="vendorsDescription" placeholder="请填入相应的描述信息" class="layui-textarea" lay-verify="required">
+
+                      </textarea>
+                  </div>
+              </div>
+
+              <div class="layui-form-item">
+                  <label class="layui-form-label">邮编</label>
+                  <div class="layui-input-block">
+                      <input type="text" name="vendorsZip" class="layui-input" autocomplete="off" placeholder="请输入对应的邮政编码" lay-verify="required">
+                  </div>
+              </div>
+
+              <div class="layui-form-item">
+                  <label class="layui-form-label">产品类型</label>
+                  <div class="layui-input-block">
+                      <input type="checkbox" name="goods" value="数码" title="数码">
+                      <input type="checkbox" name="goods" value="家居" title="家居">
+                      <input type="checkbox" name="goods" value="服装" title="服装">
+                      <input type="checkbox" name="goods" value="运动" title="运动">
+                      <input type="checkbox" name="goods" value="医疗" title="医疗">
+                      <input type="checkbox" name="goods" value="图书" title="图书">
+                      <input type="checkbox" name="goods" value="母婴" title="母婴">
+                      <input type="checkbox" name="goods" value="食品" title="食品">
+                      <input type="checkbox" name="goods" value="办公" title="办公">
+                      <input type="checkbox" name="goods" value="其他" title="其他">
+              </div>
+              </div>
+
+                  <div class="layui-form-item">
+                      <div class="layui-input-block">
+                          <button class="layui-btn" lay-submit lay-filter="*">立即登记</button>
+                          <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                      </div>
+                  </div>
+
+
+          </form>
+
+
+        </div>
+
+</body>
+</html>

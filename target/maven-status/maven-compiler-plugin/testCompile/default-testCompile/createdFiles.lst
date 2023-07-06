@@ -1,0 +1,7 @@
+com\example\mail\dao\goods\SearchGoodsTest.class
+com\example\mail\config\DataSourceTest.class
+com\example\mail\utils\VerifyCodeUtilsTest.class
+com\example\mail\dao\vendorsDao\VendorsOperationTest.class
+com\example\mail\dao\goods\GoodsOperationTest.class
+com\example\mail\dao\user\UserRegisterAndCancelTest.class
+com\example\mail\dao\vendorsDao\LoadAddressDataTest.class

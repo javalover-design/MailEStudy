@@ -1,0 +1,27 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mail.dao.user.UserRegisterAndCancel">
+    <resultMap id="registerUser" type="boolean">
+        <result column="user_name" property="username"/>
+        <result column="true_name" property="trueName"/>
+    </resultMap>
+        <insert id="registerUser" parameterType="com.example.mail.entity.User" >
+            INSERT INTO user (phone,password,email,user_name,true_name)values (#{phone},MD5(#{password}),#{email},#{username},#{trueName});
+        </insert>
+
+        <resultMap id="loginResult" type="com.example.mail.entity.User">
+            <result column="user_name" property="username"/>
+            <result column="password" property="password"/>
+        </resultMap>
+        <select id="login" resultMap="loginResult">
+                SELECT * FROM user WHERE user_name=#{username} AND password=#{password}
+        </select>
+
+
+    <delete id="cancel" parameterType="java.lang.String">
+        delete FROM user WHERE user_name=#{userName};
+    </delete>
+
+</mapper>

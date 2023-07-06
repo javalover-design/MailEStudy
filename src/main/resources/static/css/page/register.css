@@ -1,0 +1,164 @@
+/* 去除样式 */
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 设置背景颜色 */
+body{
+    background-color: rgb(10,15,48);
+}
+/* 设置左边插画位置、宽高等 */
+.bg {
+    position: absolute;
+    top: 80px;
+    left: 150px;
+    width: 490px;
+    height: 800px;
+}
+/* 设置插画上方的文字 */
+.bgword{
+    text-align: center;
+    width: 490px;
+    line-height: 50px;
+    color: rgb(170, 189, 189);
+    font-size: 35px;
+}
+/* 设置插画规格 */
+.bgsvg {
+    border-radius: 10%;
+    width: 490px;
+    height: 400px;
+    background: url(../../img/register/商品促销.svg);
+}
+/* 右边表单主体 */
+.interface{
+    position: absolute;
+    border-radius: 10%;
+    top: 50px;
+    left: 670px;
+    width: 400px;
+    background-color: rgb(255, 255, 255);
+
+}
+/* 表单标题 */
+.title {
+    color: rgb(10,15,48);
+    text-align: center;
+    margin: 30px;
+    height: 50px;
+    font-size: 30px;
+}
+/* 为span标签设置基本样式，本程序span标签用于文字或设置SVG文件 */
+span {
+    margin: 10px;
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+}
+/* 设置表单中表头名颜色 */
+.word {
+    color: rgb(126, 123, 123);
+}
+
+/* 设置登录按钮的input标签的相关属性 */
+.login>input {
+    color:#000;
+    border-radius: 12px;    /* 框边圆弧 */
+    font-size: 20px;
+    position: absolute;
+    left: 70px;
+    text-align: center;
+    width: 250px;
+    height: 50px;
+    background-color:  rgb(90, 200, 250);
+}
+/* 为input标签设置相关属性 */
+input {
+    color: #999;
+    border-radius : 12px ;
+    width: 200px;
+    font-size: 12px;
+    line-height: 32px;
+    padding: 3px;
+    border-color: #e6e6e6;
+    border-style: solid;
+
+}
+/* 输入验证码部分 */
+.identify {
+    position: relative;
+    left: 44px;
+    margin-top: 15px;
+    margin-left: 30px;
+    text-align: center;
+    height: 50px;
+    width: 250px;
+    background-color: rgb(90, 200, 250);
+    border-radius: 12px;
+
+}
+/* 输入验证码字样 */
+.identify_word {
+    color: #000;
+    padding-top: 5px;
+    width: 150px;
+}
+/* 输入验证码SVG文件设置 */
+.identifysvg {
+    float: left;
+    width: 32px;
+    background:  url(../../img/register/messenger.svg);
+}
+/* 鼠标挪上输入验证码按钮，变色 */
+.identify:hover {
+    background-color:  rgb(44,105,127);
+}
+/* 登录按钮部分 */
+.login {
+    margin-top: 15px;
+    width: 250px;
+    height: 50px;
+    margin-bottom: 20px;
+
+}
+/* 鼠标挪上登录按钮，变色 */
+.login>input:hover {
+    background-color:  rgb(27, 124, 214);
+}
+
+/* 用户名SVG */
+.namesvg {
+    margin-top: 3px;
+    float: left;
+    width: 30px;
+    background:  url(../../img/register/用户.svg);
+}
+/* 密码SVG */
+.passwordsvg {
+    margin-top: 3px;
+    float: left;
+    width: 30px;
+   /* background:  url(../../img/register/密码.svg);*/
+    background:  url(../../img/register/adguard.svg);
+}
+/* 真实姓名SVG */
+.truenamesvg {
+    margin-top: 3px;
+    float: left;
+    width: 30px;
+    background:  url(../../img/register/namecheap.svg);
+}
+/* 电子邮件SVG */
+.emailsvg {
+    margin-top: 3px;
+    float: left;
+    width: 30px;
+    background:  url(../../img/register/maildotru.svg);
+}
+/* 电话号码SVG */
+.phonenumbersvg {
+    margin-top: 3px;
+    float: left;
+    width: 30px;
+    background:  url(../../img/register/phonepe.svg);
+}

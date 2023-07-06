@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>易学注册</title>
+    <script type="text/javascript" src="../../../static/jquery-3.6.3.min.js"></script>
+    <link rel="stylesheet" href="../../../static/css/page/register.css">
+    <link rel="stylesheet" href="../../../static/layui/css/layui.css">
+    <script type="text/javascript" src="../../../static/layui/layui.js"></script>
+
+</head>
+
+<body>
+<div class="bg">
+        <span class="bgword">
+            欢迎注册易学商城平台
+        </span>
+
+    <span class="bgsvg">
+
+        </span>
+
+</div>
+
+<form method="post" onsubmit="return false"> <!--禁止表单提交-->
+<div class="interface">
+    <div class="title">
+        易学注册
+    </div>
+
+    <div class="name">
+            <span class="namesvg">
+
+            </span>
+
+        <span class="word">
+                用户名：
+            </span>
+
+        <input type="text" name="username" placeholder="输入用户名" id="user"  required>
+    </div>
+
+    <div class="password">
+
+            <span class="passwordsvg">
+
+            </span>
+
+        <span class="word">
+                密码：
+            </span>
+
+        <input type="password" name="password" placeholder="输入密码" id="pwd" required autocomplete>
+    </div>
+
+    <div class="truename">
+
+            <span class="truenamesvg">
+
+            </span>
+
+        <span class="word">
+                真实姓名：
+            </span>
+
+        <input type="text" name="truename" placeholder="输入真实姓名" autocomplete="off"  id="name" required>
+    </div>
+
+    <div class="email">
+            <span class="emailsvg">
+
+            </span>
+
+        <span class="word">
+                电子邮件：
+            </span>
+        <input type="email" name="email" placeholder="输入邮件地址" autocomplete="off" id="email" required>
+    </div>
+
+    <div class="phonenumber">
+            <span class="phonenumbersvg">
+
+            </span>
+        <span class="word">
+                联系电话：
+            </span>
+        <input type="text" name="phone" maxlength="11" placeholder="输入联系电话" autocomplete="off"  id="phone" required>
+    </div>
+
+    <div class="identify">
+        <a class="identify_a" >
+                <span class="identifysvg">
+
+                </span>
+            <span class="identify_word"   id="identify">
+                    点击获取验证码
+                </span>
+        </a>
+
+    </div>
+
+    <div class="idetifyCode">
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="identifyCode" placeholder="请输入验证码" required id="identifyCode">
+    </div>
+
+    <div class="login">
+     <input type="submit" value="注册" id="login" autocomplete >
+    </div>
+
+</div>
+</form>
+
+<script type="text/javascript" src="../../../static/js/register.js"></script>
+
+</body>
+
+</html>

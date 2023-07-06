@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>供应商登陆</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            height: 100%;
+        }
+        body {
+            height: 100%;
+        }
+        .container {
+            height: 100%;
+            background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
+        }
+        .login-wrapper {
+            background-color: #fff;
+            width: 358px;
+            height: 588px;
+            border-radius: 15px;
+            padding: 0 50px;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .header {
+            font-size: 38px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 200px;
+        }
+        .input-item {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 0;
+            padding: 10px;
+            border-bottom: 1px solid rgb(128, 125, 125);
+            font-size: 15px;
+            outline: none;
+        }
+        .input-item::placeholder {
+            text-transform: uppercase;
+        }
+        .btn {
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            margin-top: 40px;
+            background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
+            color: #fff;
+        }
+        .msg {
+            text-align: center;
+            line-height: 88px;
+        }
+        a {
+            text-decoration-line: none;
+            color: #abc1ee;
+        }
+    </style>
+    <script type="text/javascript" src="../../../static/jquery-3.6.3.min.js"></script>
+    <link rel="stylesheet" href="../../../static/layui/css/layui.css">
+    <script type="text/javascript" src="../../../static/layui/layui.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="login-wrapper">
+        <div class="header">Login</div>
+        <div class="form-wrapper">
+            <input type="text" id="name" name="vendorsName" placeholder="供应商用户名" class="input-item" lay-filter="required">
+            <input type="text" id="phone" name="vendorsPhone" placeholder="供应商电话" class="input-item" lay-filter="phone">
+            <input type="text" id="code" name="verifyCode" placeholder="请输入您所收到的验证码" class="input-item" lay-filter="required">
+            <button class="layui-btn layui-btn-radius layui-btn-danger" onclick="getVerifyCode()">获取验证码</button>
+            <div class="btn" onclick="vendorsLogin()">登陆</div>
+        </div>
+        <div class="msg">
+            没有供应商账号?
+            <a href="/vendorsRegister" style="text-underline: blue;text-decoration: underline">注册</a>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    let layer;
+    layui.use('layer',function () {
+            layer=layui.layer;
+    })
+
+    function getVerifyCode() {
+            $.ajax({
+                url:'/getVendorsLoginCode',
+                type: 'post',
+                async: true,
+                cache:false,
+                dataType: 'text',
+                success(data){
+                    layer.alert(`验证码为：${data}`,{icon: 1,title:'提示信息', btn:['知道了']})
+                },
+                error(data) {
+                    layer.msg("网络连接失败，请待会再试试吧！",{icon:2},2000);
+                }
+
+            })
+    }
+    function vendorsLogin() {
+            let vendorsName=$("#name").val();
+            let vendorsPhone=$("#phone").val();
+            let verifyCode=$("#code").val();
+            $.ajax({
+                url:'/vendorsLogin?vendorsName='+vendorsName+'&vendorsPhone='+vendorsPhone+'&verifyCode='+verifyCode,
+                type:'get',
+                async:true,
+                cache:false,
+                dataType:'text',
+                success(data){
+                    if (data==='success'){
+                        layer.alert("登陆成功！")
+                        window.location.href='/vendorsindex'
+                    }
+                    if (data==='fail'){
+                       // layer.alert("登陆失败！")
+                        layer.confirm('您的账号或者密码出现了错误！',{icon:2,btn: ['重新输入','回到主页']},function () {
+                                        layer.closeAll();
+                        },
+                        function () {
+                            window.location.href='/index';
+                        })                    }
+                },
+                error(){
+                    layer.msg("出了点问题，请重新尝试一次",{icon:2},2000);
+                }
+
+            })
+        }
+
+</script>
+</body>
+</html>
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mail.dao.vendorsDao.VendorsOperation">
+    <resultMap id="registerVendors" type="com.example.mail.entity.Vendors">
+        <result column="vendors_id" property="vendorsId"/>
+        <result column="vendors_name" property="vendorsName"/>
+        <result column="vendors_address" property="vendorsAddress"/>
+        <result column="vendors_phone" property="vendorsPhone"/>
+        <result column="vendors_description" property="vendorsDescription"/>
+        <result column="vendors_zip" property="vendorsZip"/>
+        <result column="goods_list" property="goodsList"/>
+    </resultMap>
+    <insert id="register" parameterType="com.example.mail.entity.Vendors">
+        INSERT INTO vendors(vendors_id,vendors_name,vendors_address,vendors_phone,vendors_description,vendors_zip,goods_list)
+        VALUES (MD5(#{vendorsId}),#{vendorsName},#{vendorsAddress},#{vendorsPhone},#{vendorsDescription},#{vendorsZip},#{goodsList})
+    </insert>
+
+    <select id="convertProvince" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT DISTINCT province_name FROM address WHERE province_id=#{provinceId};
+    </select>
+
+    <select id="convertCity" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT DISTINCT  city_name FROM address WHERE city_id=#{cityId};
+    </select>
+
+    <select id="convertRegion" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT DISTINCT  region_name FROM  address WHERE region_id=#{regionId};
+    </select>
+
+    <resultMap id="vendorsLoginResult" type="com.example.mail.entity.Vendors">
+        <result column="vendors_id" property="vendorsId"/>
+        <result column="vendors_name" property="vendorsName"/>
+        <result column="vendors_phone" property="vendorsPhone"/>
+
+    </resultMap>
+    <select id="vendorsLogin" parameterType="java.lang.String" resultType="com.example.mail.entity.Vendors" resultMap="vendorsLoginResult">
+        SELECT * FROM vendors
+        WHERE vendors_name=#{vendorsName} AND vendors_phone=#{vendorsPhone}
+    </select>
+</mapper>
